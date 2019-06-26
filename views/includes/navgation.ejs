@@ -1,0 +1,16 @@
+<header>
+<div class="container">
+<nav class="main-nav">
+    <span class="logo">MY LOGO</span>
+    <ul>
+        <%if(user){%>
+            <li class="profile-image"><a><img src="<%=user.profileImage%>" /></a></li>
+        <%}else{%>
+            <li><a href="/auth/kakao" class="btn kakao">카카오톡으로 로그인</a></li>
+        <%}%>
+        <%# <li><a href="/auth/login">로그인</a></li> %>
+        <%# <li ><a href="/auth/signup">회원가입</a></li> %>
+    </ul>
+</nav>
+</div>
+</header>
