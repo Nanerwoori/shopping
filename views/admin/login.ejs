@@ -1,0 +1,17 @@
+<%-include('../includes/head.ejs')%>
+<link rel="stylesheet" href="/css/admin.css">
+<div class="login">
+    <h3>관리자 로그인</h3>
+    <form method="post" action="/admin">
+        <div>
+            <input type="text" name="email" placeholder="이메일 주소 ... ">
+        </div>
+        <div>
+            <input type="password" name="password" placeholder="패스워드">
+        </div>
+        <div>
+            <button type="submit">로그인</button>
+        </div>
+    </form>
+</div>
+<%-include('../includes/footer.ejs')%>

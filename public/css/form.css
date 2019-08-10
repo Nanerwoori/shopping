@@ -1,7 +1,8 @@
 .form {
-  height: 60vh;
+  box-sizing: border-box;
+  min-height: 60vh;
   max-width: 600px;
-  margin: 30px auto;
+  /* margin: 30px auto; */
   background: #fff;
   padding: 16px;
   border: solid 1.3px #eee;
@@ -11,9 +12,13 @@
 
 .form .input-group {
   margin-bottom: 16px;
+  box-sizing: border-box;
 }
 
-.form .input-group input {
+.form .input-group input,
+.form .input-group textarea,
+.form .input-group select {
+  box-sizing: border-box;
   outline: 0;
   width: 100%;
   padding: 10px;
@@ -21,6 +26,54 @@
   color: #555;
   font-size: 16px;
   letter-spacing: 1.2;
+}
+
+/* Switch */
+.form .input-group .switch {
+  position: relative;
+  display: inline-block;
+  width: 100px;
+  height: 34px;
+}
+/* Hide default html checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #ddd;
+  transition: 0.4s;
+}
+.slider::before {
+  position: absolute;
+  content: "";
+  height: 25px;
+  width: 25px;
+  left: 4px;
+  bottom: 4px;
+  background: #fff;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background: #2196f3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+input:checked + .slider::before {
+  transform: translateX(66px);
 }
 
 .form .input-group input:active,
@@ -58,4 +111,58 @@
 .form .social-login a:hover {
   background: #f1c40f;
   color: #fff;
+}
+
+table {
+  width: 100%;
+  border-spacing: 0;
+  margin: 5px 0 0 0;
+}
+
+/* Table Head */
+thead {
+  background: #ddd;
+  padding: 10px;
+}
+
+thead tr th {
+  padding: 10px;
+  font-weight: 200;
+  font-style: italic;
+}
+
+thead th:first-child {
+  text-align: left;
+}
+/* Table Body */
+
+tbody {
+  /* padding: 10px; */
+}
+
+tbody td {
+  margin-bottom: 10px;
+  /* border: solid 5px #f4f4f4; */
+  text-align: center;
+}
+
+tbody tr td:first-child {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  text-align: left;
+}
+tbody tr td:first-child img {
+  width: 100%;
+  height: 100%;
+}
+
+tbody tr td:last-child form button {
+  background: none;
+  outline: 0;
+  border: 0;
+  color: tomato;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
 }

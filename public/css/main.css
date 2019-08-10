@@ -11,13 +11,126 @@ a {
 
 body {
   background: #fff;
+  font-family: "Cute Font", cursive;
+  font-size: 20px;
+}
+
+.l-text {
+  font-size: 32px;
+}
+
+.m-text {
+  font-size: 26px;
+}
+
+.s-text {
+  font-size: 18px;
+}
+
+.fixed-buttons {
+  /* position: absolute; */
+  left: 50%;
+  /* transform: translateX(-50%); */
+  width: 100%;
+}
+
+.fixed-buttons div {
+  position: relative;
+  width: 100%;
+}
+
+.fixed-buttons div.active .content {
+  border: dotted 1px #ddd;
+  width: 100%;
+  display: block;
+  box-sizing: border-box;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.fixed-buttons div.active .content div {
+  margin-bottom: 16px;
+  text-align: left;
+}
+
+/* .fixed-buttons div.active .content strong { */
+/* text-align: left; */
+/* } */
+
+.fixed-buttons div.active .content form textarea {
+  width: 100%;
+  box-sizing: border-box;
+  border: none;
+  /* border-bottom: solid 1px #ddd; */
+  outline: none;
+}
+
+.fixed-buttons div.active .content form textarea:active,
+.fixed-buttons div.active .content form textarea:focus,
+.fixed-buttons div.active .content form textarea:hover {
+  border-bottom: solid 1px #ddd;
+}
+
+.fixed-buttons div.active button {
+  display: none;
+}
+
+.fixed-buttons div .content {
+  display: none;
+}
+
+.fixed-buttons div:hover {
+  /* transform: translateX(-60px); */
 }
 
 .container {
   width: 90%;
   max-width: 1180px;
-  margin: 0 auto;
+  margin: 50px auto;
   overflow: hidden;
+}
+
+.col-2 {
+  display: flex;
+  justify-content: space-around;
+}
+.col-2 > div {
+  width: 50%;
+}
+.col-2 > div > a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  color: #333;
+}
+
+.col-2 > div:hover a {
+  /* background: #eee; */
+  color: #777;
+  cursor: pointer;
+}
+
+.logout {
+  display: block;
+}
+
+.logout:hover {
+  color: #333;
+  cursor: pointer;
+  background: #eee;
+}
+
+.my-1 {
+  margin: 1rem 0;
+}
+.my-2 {
+  margin: 2rem 0;
+}
+.my-3 {
+  margin: 3rem 0;
+}
+.my-4 {
+  margin: 4rem 0;
 }
 
 header {
@@ -48,13 +161,158 @@ nav.main-nav li.profile-image img {
   border: 0;
   outline: 0;
   box-sizing: border-box;
-  padding: 5px 12px;
+  padding: 3px 10px;
+  cursor: pointer;
 }
+.btn:disabled {
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: #fff;
+  border: solid 1px #ddd;
+}
+.btn-danger {
+  border: solid 1px tomato;
+  color: tomato;
+}
+.btn-large {
+  padding: 10px 20px;
+}
+
 .btn.kakao {
-  border: solid 1px #f1c40f;
+  border: solid 1px #fff;
   color: #f1c40f;
+  background: #fff;
 }
 
 .btn:hover {
   background: #f4f4f4;
+}
+
+.alert {
+  z-index: 100;
+  position: fixed;
+  top: 10%;
+  width: auto;
+  height: auto;
+  padding: 40px;
+  right: -200px;
+  opacity: 0;
+
+  font-weight: bold;
+
+  transition: all 0.6s ease-in;
+}
+
+.alert.fade-in {
+  right: 0;
+  opacity: 0.8;
+}
+
+.alert.fade-out {
+  right: -200px;
+  opacity: 0;
+}
+
+.alert.alert-success {
+  border: solid 1px #f1c40f;
+  color: #333;
+  background: #eee;
+}
+
+.alert.alert-fail {
+  border: solid 1px tomato;
+  color: #333;
+  background: #eee;
+}
+
+#chat-btn {
+  z-index: 1000;
+  /* position: fixed; */
+  /* right: 10px; */
+  /* bottom: 50px; */
+
+  cursor: pointer;
+}
+
+.chat-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 300px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  height: 100%;
+  box-sizing: border-box;
+  transform: translateX(300px);
+
+  transition: all 0.7s ease-in;
+}
+
+.chat-container.open {
+  transform: translateX(0);
+}
+
+.chat-inner {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.chat-inner #chat-form {
+  position: absolute;
+  bottom: 20%;
+  width: 100%;
+  left: 0;
+  height: 40px;
+}
+
+#chat-form div {
+  width: 80%;
+  margin: auto;
+  height: 100%;
+}
+
+#chat-form input {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  color: #fff;
+  padding-left: 10px;
+  border: none;
+  border-bottom: solid 2px #eee;
+  outline: 0;
+}
+#chat-form button {
+  flex: 1;
+}
+
+.badge {
+  padding: 1.2px 14px;
+  background: #f1c40f;
+  border-radius: 30px;
+  color: #fff;
+}
+
+#plusfriend-chat-button {
+  position: fixed;
+  bottom: 10px;
+  right: 20px;
+  display: inline-block;
+  width: 100px;
+}
+#plusfriend-chat-button img {
+  width: 100%;
+}
+
+@keyframes alert {
+  0% {
+    opacity: 0;
+    right: -100%;
+  }
+  100% {
+    right: 0;
+    opacity: 0.7;
+  }
 }

@@ -1,0 +1,26 @@
+
+<%-include('../includes/head.ejs')%>
+<link rel="stylesheet" href="/css/side-layout.css">
+<link rel="stylesheet" href="/css/prodcuts.css">
+<link rel="stylesheet" href="/css/category.css">
+<body>
+<div class="side-layout">
+<%-include('../includes/sidebar.ejs')%>
+<div class="contents">
+    <h4 class="my-4 m-text">
+        
+    </h4>
+
+    <div>
+    <%if(categories && categories.length > 0){%>
+        <%categories.forEach(category => {%>
+            <%=category.name%>
+        <%});%>
+    <%} else {%>
+        <h4 class="my-4">생성된 카테고리가 없어요.</h4>
+    <%}%>
+    </div>
+</div>
+</div>
+<div style="margin: 100px 0;"></div>
+<%-include('../includes/footer.ejs')%>

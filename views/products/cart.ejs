@@ -1,0 +1,76 @@
+
+<%-include('../includes/head.ejs')%>
+<link rel="stylesheet" href="/css/side-layout.css">
+<link rel="stylesheet" href="/css/prodcuts.css">
+<link rel="stylesheet" href="/css/cart.css">
+<body>
+<div class="side-layout">
+<%-include('../includes/sidebar.ejs')%>
+<div class="contents">
+
+    <h4 class="my-4 l-text">My CART</h4>
+    
+    <%if(products&&products.length > 0 ){%>
+    <a href="/products/clear/cart" class="btn btn-danger">Clear All Cart</a>
+    <div class="container">
+    <table>
+        <thead>
+            <th>이미지</th>
+            <th>상품명</th>
+            <th>수량</th>
+            <th>가격</th>
+            <th>삭제</th>
+            <th>결제</th>
+        </thead>
+        <tbody>
+        <%products.forEach(product => {%>
+            <tr>
+                <td><img src="<%=product.productId.imageUrl%>"/></td>
+                <td><%=product.productId.name%></td>
+                <td> <button class="decrease-qty">-</button> <%=product.qty%> <button class="increase-qty"> + </button></td>
+                <td><%=product.productId.price%> * <%= product.qty%> = <%=product.productId.price * product.qty%>원</td>
+                <td>
+                    <form method="post" action="/products/delete/cart">
+                        <input type="hidden" name="productId" value="<%=product.productId._id%>">
+                        <button type="submit">X</button>
+                    </form>
+                </td>
+                <td>
+                    <form method="post" action="/api/kakao/pay">
+                        <input type="hidden" name="name" value="<%=product.productId.name%>">
+                        <input type="hidden" name="qty" value="<%=product.qty%>">
+                        <input type="hidden" name="price" value="<%=product.productId.price%>">
+                        <button type="submit">
+                            <img src="/imgages/kakao/payment_icon_yellow_small.png" ></td>
+                        </button>
+                    </form>
+            </tr>
+        <%});%>
+        </tbody>
+    </table>
+    </div>
+    <div class="my-4">
+    총 가격: 
+    <%if(products&&products.length > 0 ){%>
+        <%let totalPrice = 0;%>
+        <%products.map(product => {%>
+            <% return product.productId.price * product.qty%>
+        <%}).forEach(price => {%>
+            <%totalPrice = totalPrice + price;%>
+        <%})%>
+            <%=totalPrice%>
+
+        <form method="post" action="/products/create-order">
+            <button type="submit" class="btn btn-primary btn-large">주문</button>
+        </form>
+    <%}%>
+    <form></form>
+    </div>
+    <%} else {%>
+        <p class="m-text">카트가 텅텅 비었네요.</p>
+    <%}%>
+</div>
+</div>
+<div style="margin: 100px 0;"></div>
+<script src="/js/cart.js"></script>
+<%-include('../includes/footer.ejs')%>

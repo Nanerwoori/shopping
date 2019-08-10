@@ -1,0 +1,32 @@
+
+<%-include('../includes/head.ejs')%>
+<link rel="stylesheet" href="/css/side-layout.css">
+<link rel="stylesheet" href="/css/prodcuts.css">
+<link rel="stylesheet" href="/css/cart.css">
+<body>
+<div class="side-layout">
+<%-include('../includes/sidebar.ejs')%>
+<div class="contents">
+    <h1>TODO : 결제 </h1>
+    <h4 class="my-4 l-text">My Order</h4>
+    <%if(orders && orders.length > 0){%>
+        <ul class="orders">
+        <%orders.forEach(order => {%>
+            <li class="order-item">
+                <h4 class="m-text">주문- #<%=order._id%></h4>
+                <ul class="order-prodcuts">
+                <%order.products.forEach(p => {%>
+                    <li class="order-products-item">
+                        <%=p.product.name%> (<%=p.qty%>)
+                    </li>
+                <%});%>
+                </ul>
+            </li>        
+        <%});%>
+        </ul>
+    <%}else{%>
+        <h4>주문한 상품이 없어요.</h4>
+    <%}%>
+   
+<div style="margin: 100px 0;"></div>
+<%-include('../includes/footer.ejs')%>

@@ -1,0 +1,23 @@
+form.category {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: solid 1px #ddd;
+  display: inline-block;
+}
+
+form.category input {
+  border: 0;
+  padding: 10px;
+  outline: none;
+  box-sizing: border-box;
+}
+
+form.category button {
+  padding: 10px;
+  background: #ddd;
+  cursor: pointer;
+  outline: 0;
+  border: 0;
+  box-sizing: border-box;
+}

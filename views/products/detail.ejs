@@ -1,0 +1,65 @@
+
+<%-include('../includes/head.ejs')%>
+<link rel="stylesheet" href="/css/side-layout.css">
+<link rel="stylesheet" href="/css/prodcuts.css">
+<link rel="stylesheet" href="/css/prodcuts-detail.css">
+<body>
+<div class="side-layout">
+<%-include('../includes/sidebar.ejs')%>
+<div class="contents">
+    <div class="detail-header container">
+        <img src="<%=product.imageUrl%>" >
+        <div class="info">
+            <h4><%=product.name%></h4>
+            <p><%=product.description%></p>
+            <p><%=product.price%>원</p>
+            <form action="/products/add/cart" method="post">
+                <input type="hidden" name="productId" value="<%=product._id%>"/>
+                <input type="number" name="qty" min="1" step="1"  placeholder="수량" />
+                <%if(user){%>
+                    <button type="submit"> ADD TO CART</button>
+                <%}else{%>
+                    <a href="/"> Please Login</a>
+               <%}%>
+            </form>
+        </div>
+    </div>
+    <div class="detail-images">
+        IMAGES SECTIONS
+    </div>
+    <div class="fixed-buttons">
+        <div>
+            <button class="btn btn-primary" id="add-comment"<%=user? "":"disabled"%>>
+                <%=user ? '후기 작성':'후기 작성하려면 로그인 해주세요!'%>
+            </button>
+    <%if(user) {%>
+            <div class="content">
+                <form id="comment-form">
+                    <div>
+                        <strong>작성자: <%=user.username%></strong>
+                    </div>
+                    <div>
+                        <textarea name="body" placeholder="상품 후기를 달아주세요"></textarea>
+                    </div>
+                    <div>
+                        <input type="submit" class="btn" value="작성 완료" />
+                        <input type="button" id="cancel-comment" value="취소" class="btn danger" />
+                    </div>
+                </form>
+            </div>
+    <%}%>
+        </div>
+    
+    </div>
+    <div id="comment">
+        COMMENT SECTION
+    </div>
+</div>
+
+
+
+
+</div>
+<div style="margin: 100px 0;"></div>
+<script src="/js/comments.js"></script>
+<%-include('../includes/footer.ejs')%>

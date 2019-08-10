@@ -1,0 +1,50 @@
+
+<%-include('../includes/head.ejs')%>
+<link rel="stylesheet" href="/css/dashboard.css">
+<link rel="stylesheet" href="/css/form.css">
+<body>
+<%-include('../includes/navgation.ejs')%>
+<main>
+    <div class="dashboard">
+
+        <%-include('../includes/dashboard-control.ejs')%>
+        <div class="right">
+            <h4></h4>
+            <form class="form" action="/products/add" method="post">
+                <div class="input-group">
+                    <input type="text" name="name" placeholder="상품 이름">
+                </div>
+                <div class="input-group">
+                    <input type="text" name="imageUrl" placeholder="이미지 URL">
+                </div>
+                <div class="input-group">
+                    <input type="number" min="1000" step="1000" name="price" placeholder="가격">
+                </div>
+                <div class="input-group">
+                    <label class="switch">
+                        <input type="checkbox" name="isPublic">
+                        <span class="slider"></span>
+                    </label> 공개
+                </div>
+                <div class="input-group">
+                    <select name="categoryId">
+                    <%if(categories && categories.length > 0){%>
+                        <option selected disabled>카테고리</option>
+                        <%categories.forEach(category => {%>
+                            <option value="<%=category._id%>"><%=category.name%></option>   
+                        <%})%>;
+                    <%}%>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <textarea placeholder="상품 설명" name="description"></textarea>
+                </div>
+
+                <div class="input-group">
+                    <button type="submit">등록</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
+<%-include('../includes/footer.ejs')%>

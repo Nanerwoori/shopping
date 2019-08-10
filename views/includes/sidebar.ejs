@@ -1,0 +1,52 @@
+<div class="sidebar">
+    <div class="sidebar-inner">
+        <div class="side-top">
+            <h3 class="side-logo"><a href="/">LOGO OR SITENAME</a></h3>
+            <%if(user){%>
+                <span class="profile-image"><a><img src="<%=user.profileImage%>" /></a></span>
+                <p><%=user.username%></p>
+            <%}else{%>
+                <span><a href="/auth/kakao" class="btn kakao">카카오톡으로 로그인</a></span>
+            <%}%>
+        </div>
+        <%if(user){%>
+        <div>
+            <div class="col-2 my-1">
+                <div>
+                    <a href="/products/cart">카트 <span class="badge"><%=numOfCart%></span></a>
+                </div>
+                <div>
+                    <a href="/products/order">주문</a>
+                </div>
+            </div>
+            <a href="/auth/logout" class="logout">로그아웃</a>
+        </div>
+        <%}%>
+        
+        <div class="side-search">
+            <form action="/search" method="get">
+                <input type="text" name="searchBy" placeholder="상품명을 입력해주세요"/>
+                <button>search</button>
+            </form>
+        </div>
+
+
+        <div class="side-category">
+            <p>CATEGORY SECTION</p>
+            <%if(categories){%>
+                <%categories.forEach(category => {%>
+                    <span><a href="/category/<%=category._id%>"><%=category.name%></a></span>  
+                <%});%>
+            <%}%>    
+        </div>
+        <div class="side-footer">
+            <div>
+                &copy; 2019 by SITE_NAME
+            </div>
+        </div>
+    </div>
+</div>
+
+<%if(user){%>
+<div id="plusfriend-chat-button"></div>
+<%}%>

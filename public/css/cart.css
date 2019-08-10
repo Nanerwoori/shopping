@@ -1,0 +1,82 @@
+table {
+  width: 100%;
+  border-spacing: 0;
+  margin: 5px 0 0 0;
+}
+
+/* Table Head */
+thead {
+  /* background: #ddd; */
+  border: solid 1px #ddd;
+  padding: 10px;
+}
+
+thead tr th {
+  padding: 10px;
+  font-weight: 200;
+  font-style: italic;
+}
+
+thead th:first-child {
+  text-align: left;
+}
+/* Table Body */
+
+tbody {
+  border: solid 1px #ddd;
+  padding: 10px;
+}
+
+tbody td {
+  /* margin-bottom: 10px; */
+  box-sizing: border-box;
+
+  /* border: solid 5px #f4f4f4; */
+}
+
+tbody tr {
+  background: rgb(250, 250, 250);
+}
+
+tbody tr:nth-child(even) {
+  background: #fff;
+}
+
+tbody tr td:first-child {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  text-align: left;
+}
+tbody tr td:first-child img {
+  width: 100%;
+  height: 60px;
+  display: inline-block;
+}
+
+tbody tr td:nth-child(5) form button {
+  background: none;
+  outline: 0;
+  border: 0;
+  color: tomato;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  border: solid 1px #ddd;
+  height: 30px;
+  width: 30px;
+  border-radius: 100%;
+}
+
+tbody tr td:last-child img {
+  width: 60px;
+  height: 25px;
+  display: inline-block;
+}
+
+tbody tr td:last-child button {
+  outline: 0;
+  border: 0;
+  cursor: pointer;
+  background: none;
+}

@@ -2,33 +2,13 @@
 <%-include('../includes/head.ejs')%>
 <link rel="stylesheet" href="/css/side-layout.css">
 <link rel="stylesheet" href="/css/prodcuts.css">
-<link rel="stylesheet" href="/css/slider.css">
 <body>
 <div class="side-layout">
-<%-include('../includes/sidebar.ejs',{categories:categories})%>
+<%-include('../includes/sidebar.ejs')%>
 <div class="contents">
-    <div class="slider">
-        <div class="slide current">
-            <div class="content">
-                <h1>THIS IS FIRST SLIDER</h1>
-                <p>this is for testing slider</p>
-            </div>
-        </div>
-        <div class="slide">
-            <div class="content">
-                <h1>THIS IS SECOND SLIDER</h1>
-                <p>this is for testing slider</p>
-            </div>
-        </div>
-        <div class="slide">
-            <div class="content">
-                <h1>THIS IS LAST ONE</h1>
-                <p>this is for testing slider</p>
-            </div>
-        </div>
-    </div>
 
-    <h4 class="my-4 m-text">최신 상품</h4>
+    <h4 class="my-4 m-text">검색결과 : <%=searchBy%></h4>
+
     <%if(products&&products.length > 0 ){%>
         <div class="product-latest">
             <%products.forEach(product => {%>
@@ -43,10 +23,10 @@
                 </div>  
             <%});%>
         </div>
+    <%} else{%>
+        존재 하지 않사요.
     <%}%>
 </div>
-<%-include('../includes/chat.ejs');%>
 </div>
-
-<script src="/js/slider.js"></script>
+<div style="margin: 100px 0;"></div>
 <%-include('../includes/footer.ejs')%>

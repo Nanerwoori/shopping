@@ -8,7 +8,8 @@ passport.use(
     {
       clientID: keys.KAKAO.clientID,
       clientSecret: keys.KAKAO.clientSecret,
-      callbackURL: keys.KAKAO.callbackURL
+      callbackURL: keys.KAKAO.callbackURL,
+      passReqToCallback: true
     },
     kakaoVerify
   )

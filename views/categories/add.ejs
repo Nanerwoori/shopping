@@ -1,0 +1,24 @@
+
+<%-include('../includes/head.ejs')%>
+<link rel="stylesheet" href="/css/dashboard.css">
+<link rel="stylesheet" href="/css/form.css">
+<body>
+<%-include('../includes/navgation.ejs')%>
+<main>
+    <div class="dashboard">
+
+        <%-include('../includes/dashboard-control.ejs')%>
+        <div class="right">
+            <h4></h4>
+            <form class="form" action="/category/add" method="post">
+                <div class="input-group">
+                    <input type="text" name="name" placeholder="카테고리 이름">
+                </div>
+                <div class="input-group">
+                    <button type="submit">등록</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
+<%-include('../includes/footer.ejs')%>

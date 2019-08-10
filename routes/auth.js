@@ -7,10 +7,16 @@ const passport = require("passport");
  * @method GET:/auth/kakao
  * @desc kakao 요청
  */
+
 router.get(
   "/kakao",
   passport.authenticate("kakao", { failureRedirect: "/auth/login" })
 );
+
+router.get("/logout", (req, res, next) => {
+  req.logout();
+  res.redirect("/");
+});
 
 /**
  * @method GET:/auth/kakao/callback
